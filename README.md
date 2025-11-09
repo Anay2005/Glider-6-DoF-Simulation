@@ -58,20 +58,82 @@ A380_Glider_6DoF/
 ## ⚙️ Mathematical Model Overview
 
 ### Translational Dynamics
-\[
-m \dot{\mathbf{v}} = \mathbf{F}_{aero} + \mathbf{F}_{gravity} + \mathbf{F}_{wind}
-\]
+Translational Dynamics
 
-### Rotational Dynamics
-\[
-\mathbf{I}\dot{\boldsymbol{\omega}} + \boldsymbol{\omega}\times(\mathbf{I}\boldsymbol{\omega}) = \mathbf{M}_{aero} + \mathbf{M}_{control}
-\]
+𝑚
+ 
+𝑣
+˙
+=
+𝐹
+aero
++
+𝐹
+gravity
++
+𝐹
+wind
+m
+v
+˙
+=F
+aero
+	​
 
-Where  
-- \( \mathbf{v} \) = velocity vector in body frame  
-- \( \boldsymbol{\omega} \) = angular velocity vector  
-- \( \mathbf{I} \) = inertia matrix  
-- \( \mathbf{F}, \mathbf{M} \) = net forces and moments  
++F
+gravity
+	​
+
++F
+wind
+	​
+
+
+Rotational Dynamics
+
+𝐼
+𝜔
+˙
++
+𝜔
+×
+(
+𝐼
+𝜔
+)
+=
+𝑀
+aero
++
+𝑀
+control
+I
+ω
+˙
++ω×(Iω)=M
+aero
+	​
+
++M
+control
+	​
+
+
+Where:
+
+𝑣
+v: velocity vector in body frame
+
+𝜔
+ω: angular velocity vector
+
+𝐼
+I: inertia matrix
+
+𝐹
+,
+𝑀
+F,M: net forces and moments 
 
 ### Integration
 Implemented using fixed-step or variable-step Runge–Kutta integrators.  
