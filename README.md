@@ -37,7 +37,7 @@ Developed as part of an advanced aerospace simulation initiative to explore larg
 
 ## 🧠 Project Architecture
 
-```bash
+
 A380_Glider_6DoF/
 ├── main.py               # Main entry point for running simulations
 ├── aero.py               # Aerodynamic coefficient and force models
