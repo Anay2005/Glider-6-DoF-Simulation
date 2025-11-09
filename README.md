@@ -37,6 +37,7 @@ Developed as part of an advanced aerospace simulation initiative to explore larg
 
 ## 🧠 Project Architecture
 
+```bash
 
 A380_Glider_6DoF/
 ├── main.py               # Main entry point for running simulations
@@ -52,88 +53,42 @@ A380_Glider_6DoF/
 ├── requirements.txt      # Python dependencies
 └── README.md             # Documentation (this file)
 
+```
 
 ---
 
 ## ⚙️ Mathematical Model Overview
 
 ### Translational Dynamics
-Translational Dynamics
 
-𝑚
- 
-𝑣
-˙
-=
-𝐹
-aero
-+
-𝐹
-gravity
-+
-𝐹
-wind
-m
-v
-˙
-=F
-aero
-	​
+The translational motion of the aircraft in body axes is governed by:
 
-+F
-gravity
-	​
+$$
+m \, \dot{\mathbf{v}} = \mathbf{F}_{\text{aero}} + \mathbf{F}_{\text{gravity}} + \mathbf{F}_{\text{wind}}
+$$
 
-+F
-wind
-	​
+Where:  
+- $m$ – aircraft mass  
+- $\dot{\mathbf{v}}$ – time derivative of velocity (acceleration) in the body frame  
+- $\mathbf{F}_{\text{aero}}$ – aerodynamic force vector  
+- $\mathbf{F}_{\text{gravity}}$ – gravitational force vector  
+- $\mathbf{F}_{\text{wind}}$ – wind disturbance force vector
 
+### Rotational Dynamics
 
-Rotational Dynamics
+The rotational motion of the aircraft about its center of gravity is governed by the Euler rotational equations:
 
-𝐼
-𝜔
-˙
-+
-𝜔
-×
-(
-𝐼
-𝜔
-)
-=
-𝑀
-aero
-+
-𝑀
-control
-I
-ω
-˙
-+ω×(Iω)=M
-aero
-	​
+$$
+\mathbf{I} \, \dot{\boldsymbol{\omega}} + \boldsymbol{\omega} \times (\mathbf{I} \, \boldsymbol{\omega}) = \mathbf{M}_{\text{aero}} + \mathbf{M}_{\text{control}}
+$$
 
-+M
-control
-	​
+Where:  
+- $\mathbf{I}$ – inertia matrix of the aircraft  
+- $\boldsymbol{\omega}$ – angular velocity vector in body frame  
+- $\dot{\boldsymbol{\omega}}$ – angular acceleration vector  
+- $\mathbf{M}_{\text{aero}}$ – aerodynamic moment vector  
+- $\mathbf{M}_{\text{control}}$ – control surface moment vector
 
-
-Where:
-
-𝑣
-v: velocity vector in body frame
-
-𝜔
-ω: angular velocity vector
-
-𝐼
-I: inertia matrix
-
-𝐹
-,
-𝑀
-F,M: net forces and moments 
 
 ### Integration
 Implemented using fixed-step or variable-step Runge–Kutta integrators.  
